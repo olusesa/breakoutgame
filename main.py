@@ -6,6 +6,20 @@ from ui import UI
 from bricks import Bricks
 import time
 
+from flask_gravatar import Gravatar
+import smtplib
+app = Flask(__name__)
+app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
+gravatar = Gravatar(app,
+                    size=100,
+                    rating='g',
+                    default='retro',
+                    force_default=False,
+                    force_lower=False,
+                    use_ssl=False,
+                    base_url=None)
+
+
 screen = tr.Screen()
 screen.setup(width=1200, height=600)
 screen.bgcolor('black')
